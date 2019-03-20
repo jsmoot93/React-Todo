@@ -11,8 +11,8 @@ class App extends React.Component {
     };
   }
 
-  addTodo = i => {
-    i.preventDefault();
+  submitTodo = (event) => {
+    event.preventDefault();
     const newTodo = { task: this.state.todo, completed: false, id: Date.now() };
     this.setState({ 
       todoStuff: [...this.state.todoStuff, newTodo], 
@@ -20,7 +20,9 @@ class App extends React.Component {
     });
   };
 
-  inputTodo = (event) => this.setState({[event.target.name]: event.target.value });
+  inputTodo = (event) => {
+    this.setState({[event.target.name]: event.target.value });
+  }
 
   render() {
     return (
@@ -29,9 +31,9 @@ class App extends React.Component {
           todoStuff={this.state.todoStuff}
         />
         <TodoForm
-          value={this.state.todo}
-          handleTodoChange={this.inputTodo}
-          handleAddTodo={this.addTodo}
+          todoChange={this.inputTodo}
+          submitTodo={this.submitTodo}
+          input={this.state.todo}
         />
       </div>
     );

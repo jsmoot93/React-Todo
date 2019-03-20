@@ -3,13 +3,13 @@ const TodoForm = props => {
   return (
     <form>
       <input
-        onChange={props.handleTodoChange}
+        onChange={props.todoChange}
         type="text"
         name="todo"
-        value={props.value}
+        value={props.input}
         placeholder="...todo"
       />
-      <button onClick={props.handleAddTodo}>Add Todo</button>
+      <button onClick={props.submitTodo}>Add</button>
     </form>
   );
 };
